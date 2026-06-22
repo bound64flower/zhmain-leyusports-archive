@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HLTV 专题介绍｜持续关注你的赛事情报站</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f6f8;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0b1a2e 0%, #1a2f45 60%, #0f253a 100%);
+            min-height: 52vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 60%;
+            height: 140%;
+            background: radial-gradient(circle at 30% 40%, rgba(60, 140, 200, 0.08), transparent 70%);
+            pointer-events: none;
+        }
+        .hero-content {
+            max-width: 940px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #eef3f7;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .hero .sub {
+            font-size: 1.15rem;
+            color: rgba(220, 235, 250, 0.75);
+            max-width: 680px;
+            margin: 0.8rem auto 1.4rem;
+            font-weight: 400;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(2px);
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #b0cef0;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .section-bg {
+            background: #ffffff;
+            padding: 2.8rem 1.5rem 3.5rem;
+        }
+        .container {
+            max-width: 940px;
+            margin: 0 auto;
+        }
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+        }
+        .intro-card {
+            background: #fafbfc;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.02), 0 6px 20px rgba(0,20,40,0.04);
+            transition: box-shadow 0.2s;
+            border: 1px solid #eaedf0;
+        }
+        .intro-card:hover {
+            box-shadow: 0 8px 28px rgba(0,20,40,0.06);
+        }
+        .intro-card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1d2a3a;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid #dce3ea;
+            display: inline-block;
+        }
+        .intro-card p {
+            margin-top: 0.6rem;
+            font-size: 1rem;
+            color: #2e4053;
+        }
+        .highlight-link a {
+            color: #1f6390;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .highlight-link a:hover {
+            color: #0b3f5e;
+            border-bottom: 1px solid #0b3f5e;
+        }
+        .faq-mini {
+            margin-top: 2.8rem;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            border: 1px solid #e2e8ee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #192734;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .faq-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #edf0f3;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            font-weight: 600;
+            color: #1a3f55;
+            display: block;
+            margin-bottom: 0.1rem;
+        }
+        .faq-item p {
+            margin: 0.1rem 0 0;
+            color: #3b4e62;
+            font-size: 0.95rem;
+        }
+        .footer-note {
+            background: #eaedf2;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3d586e;
+            border-top: 1px solid #d5dde6;
+        }
+        .footer-note a {
+            color: #1f6390;
+            border-bottom: 1px dashed #8cabc0;
+            text-decoration: none;
+        }
+        .footer-note a:hover {
+            border-bottom: 1px solid #1f6390;
+        }
+        .footer-note .small {
+            margin-top: 0.8rem;
+            font-size: 0.82rem;
+            color: #60798c;
+        }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .sub { font-size: 1rem; }
+            .intro-card { padding: 1.4rem 1.2rem; }
+            .faq-mini { padding: 1.2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 杂志专题式 -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tagline">✦ 专题 · 持续关注</span>
+            <h1>HLTV · 赛事情报站</h1>
+            <p class="sub">从排名到赛事，从数据到深度报道 —— 一个及时、可靠的竞技资讯平台，值得你再次打开与收藏。</p>
+        </div>
+    </section>
+
+    <!-- 浅色正文区 -->
+    <div class="section-bg">
+        <div class="container">
+
+            <div class="intro-grid">
+
+                <!-- 第一段：再次访问的契机 -->
+                <div class="intro-card">
+                    <h2>再次访问的理由</h2>
+                    <p>
+                        不管你是偶尔关注赛事，还是长期追踪战队动态，<span class="highlight-link"><a href="https://hltvnet.com">hltv官网</a></span> 都保持着稳定的信息更新节奏。
+                        每轮比赛结束后的排名变动、选手数据、赛事预告，都以直观的列表和卡片呈现，无需反复查询。
+                        如果你曾经在这里找到过需要的赛事信息，那么再次回来会发现页面结构更清爽，内容分类也更细致。
+                    </p>
+                </div>
+
+                <!-- 第二段：收藏与长期使用场景 -->
+                <div class="intro-card">
+                    <h2>适合收藏的内容场景</h2>
+                    <p>
+                        对于经常查阅赛历和队伍统计的用户，把 <span class="highlight-link"><a href="https://hltvnet.com">hltv官网</a></span> 加入书签是一个自然的选择。
+                        日常你可以快速浏览当天赛程、查看历史对阵记录，或是通过筛选功能找到特定赛区的近期战况。
+                        没有多余的弹窗或强制注册，信息直接呈现，浏览体验干净利落——这正是长期关注型用户喜欢的节奏。
+                    </p>
+                </div>
+
+                <!-- 第三段：持续关注的背后逻辑 -->
+                <div class="intro-card">
+                    <h2>为什么值得持续关注</h2>
+                    <p>
+                        竞技赛事的信息密度高，但高质量的整理并不常见。这组页面通过清晰的索引和层级，把赛事、战队、选手数据整合在一起，
+                        无论是想快速了解一场焦点战的胜负走向，还是想对比不同队伍的近期状态，都能在几次点击内完成。
+                        对于关注赛事的你来说，它就像一个安静但始终在更新的资料库，不需要额外精力去适应。
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ 摘要 自然补充 -->
+            <div class="faq-mini">
+                <h3>📌 常见问题摘要</h3>
+                <div class="faq-item">
+                    <strong>页面多久更新一次？</strong>
+                    <p>赛事期间实时调整，日常数据每日同步，确保排名和赛果的时效性。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>需要注册才能浏览吗？</strong>
+                    <p>绝大多数内容公开可见，无需登录即可查看赛程、排名和基础数据。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>移动端体验如何？</strong>
+                    <p>页面针对手机屏幕做了适配，卡片布局在窄屏下仍然整齐，赛事列表可横向滑动。</p>
+                </div>
+                <div class="faq-item">
+                    <strong>是否包含历史赛事存档？</strong>
+                    <p>覆盖近几个赛季的主要赛事记录，并持续补充更早的经典对阵数据。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <p>
+            如果你觉得这个信息站符合你的节奏，不妨把它保持在浏览器书签栏。
+            每次打开 <span class="highlight-link"><a href="https://hltvnet.com">hltv官网</a></span>，都可以直接看到当天焦点与最新排名。
+        </p>
+        <div class="small">
+            — 专题页面 · 内容仅供参考，不构成任何承诺或引导 —
+        </div>
+    </footer>
+
+</body>
+</html>
